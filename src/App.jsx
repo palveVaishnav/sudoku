@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <RecoilRoot>
-        <div style={{display:'grid',placeItems:'center'}}>        
+        <div style={{display:'flex',flexWrap:'wrap',justifyContent:'space-evenly',alignItems:'center',}}>        
           <Sudoku />
           <Solve />
         </div>

@@ -6,24 +6,6 @@ const Solve = () => {
   const puzzle = useRecoilValue(Puzzle);
   const [toSolve, setToSolve] = useRecoilState(ToSolve);
 
-  const printMatrix2 = (x) => {
-    return (
-      <div>
-        <hr />
-        {x.map((row, i) => (
-          <div key={i} className="row">
-            {row.map((col, j) => (
-              <span key={j} className="cell">
-                {col}
-              </span>
-            ))}
-          </div>
-        ))}
-        <hr />
-      </div>
-    );
-  };
-
   const printMatrix = (x) => (
         <table border="1" cellPadding="5" style={{ borderCollapse: 'collapse', margin: 'auto' }}>
             <tbody>
@@ -114,14 +96,15 @@ const Solve = () => {
 
   return (
     <div className="App">
-      <button onClick={startSolving}>Solve Sudoku</button>
+      <button onClick={startSolving} style={{backgroundColor:'lightgreen',padding:'3px 6px',borderRadius:'.5em'}}>Get Solution</button>
+      <div className="result">
+        {isSame() ? <p>Both are Same</p> : <p>Different answers !!</p>}
+      </div>
       <div className="solution">
         <h2>Solution</h2>
         {printMatrix(toSolve)}
       </div>
-      <div className="result">
-        {isSame() ? <p>Both are Same</p> : <p>Different answers !!</p>}
-      </div>
+      
     </div>
   );
 };
